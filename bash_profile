@@ -6,6 +6,7 @@ else
   echo "Unrecognized OS some settings not set."
 fi
 
+export EDITOR="VIM"
 alias ll="ls -l"
 alias la="ls -a"
 
