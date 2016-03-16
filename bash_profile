@@ -8,3 +8,7 @@ fi
 
 alias ll="ls -l"
 alias la="ls -a"
+
+# Tmux aliases
+alias tmuxa="tmux a -t"
+alias tmuxs="tmux new-session -s"
