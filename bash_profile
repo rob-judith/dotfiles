@@ -9,6 +9,7 @@ else
   echo "Unrecognized OS some settings not set."
 fi
 
+export PIP_REQUIRE_VIRTUALENV=true
 export EDITOR="/usr/bin/vim"
 
 alias ll="ls -l"
