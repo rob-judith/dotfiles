@@ -5,6 +5,8 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
 elif [[ "$OSTYPE" == "darwin"* ]]; then
   alias ls="ls -G"
   export EDITOR="VIM"
+  # setup bash_completion
+  . `brew --prefix`/etc/bash_completion
 else
   echo "Unrecognized OS some settings not set."
 fi
@@ -40,12 +42,6 @@ LM=$'\e[1;35m'    # magenta
 LC=$'\e[1;36m'    # cyan
 LW=$'\e[1;37m'    # white
 ENDCOLOR=$'\e[0m'  # End color
-
-# Bash info
-# requires bash-completion to be installed
-if [ -f `brew --prefix`/etc/bash_completion ]; then
-    . `brew --prefix`/etc/bash_completion
-fi
 
 # Git status color
 function git_color() {
