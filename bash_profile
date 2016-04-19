@@ -5,7 +5,7 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
 elif [[ "$OSTYPE" == "darwin"* ]]; then
   alias ls="ls -G"
   export EDITOR="VIM"
-  # setup bash_completion
+  # setup bash_completion this will fail if brew isn't installed
   . `brew --prefix`/etc/bash_completion
 else
   echo "Unrecognized OS some settings not set."
@@ -17,6 +17,17 @@ export EDITOR="/usr/bin/vim"
 
 alias ll="ls -l"
 alias la="ls -a"
+
+# Grep color
+alias grep='grep --color=auto'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+
+# Create parent directories automatically
+alias mkdir='mkdir -pv'
+
+# Make wget resume partial downloads.
+alias wget='wget -c'
 
 # Tmux aliases
 alias tmuxa="tmux a -t"
