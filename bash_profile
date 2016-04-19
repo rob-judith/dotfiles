@@ -1,10 +1,11 @@
 # Some settings are OS dependent.
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
   alias ls="ls --color=auto"
+  export EDITOR="/usr/bin/vim"
 
 elif [[ "$OSTYPE" == "darwin"* ]]; then
   alias ls="ls -G"
-  export EDITOR="VIM"
+  export EDITOR="/usr/local/bin/vim"
   # setup bash_completion this will fail if brew isn't installed
   . `brew --prefix`/etc/bash_completion
 else
@@ -13,7 +14,6 @@ fi
 
 # Don't let me install python packages without a virtual env
 export PIP_REQUIRE_VIRTUALENV=true
-export EDITOR="/usr/bin/vim"
 
 alias ll="ls -l"
 alias la="ls -a"
