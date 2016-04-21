@@ -62,10 +62,12 @@ function git_color() {
         echo -e $DR
     elif [[ $git_status =~ "Your branch is ahead of" ]]; then
         echo -e $DY
-    elif [[ $git_status =~ "nothing to commit" ]]; then
+    elif [[ $git_status =~ "Your branch is behind" ]]; then
+        echo -e $DM
+    elif [[ $git_status =~ "nothing to comit" ]]; then
         echo -e $DG
     else 
-        echo -e $DM
+        echo -en $DG
     fi
 }
 
