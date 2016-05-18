@@ -51,7 +51,7 @@ for config_file, paths in install_paths:
             git_line = ("[include]\n"
                         "    path = {}\n\n"
                         "[core]\n"
-                        "    excludesfiles= {}\n").format(script_path + '/' +
+                        "    excludesfile = {}\n").format(script_path + '/' +
                                                 config_file, script_path +
                                                 '/gitignore')
             os.system('echo "{}" > "{}"'.format(git_line, path))
