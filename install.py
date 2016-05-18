@@ -49,8 +49,11 @@ for config_file, paths in install_paths:
         print 'Adding source to "{}"'.format(path)
         if config_file == 'gitconfig':
             git_line = ("[include]\n"
-                        "    path = {}").format(script_path + '/' +
-                                                config_file)
+                        "    path = {}\n\n"
+                        "[core]\n"
+                        "    excludesfiles= {}\n").format(script_path + '/' +
+                                                config_file, script_path +
+                                                '/gitignore')
             os.system('echo "{}" > "{}"'.format(git_line, path))
         else:
             os.system('echo "source {}" > {}'.format(script_path + '/' + 
