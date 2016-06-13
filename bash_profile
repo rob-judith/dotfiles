@@ -33,6 +33,9 @@ alias wget='wget -c'
 alias tmuxa="tmux a -t"
 alias tmuxs="tmux new-session -s"
 
+# Clean pyc files
+alias pycclean='find ./ -name "*.pyc" -delete'
+
 # Define Colors
 # dark colors
 DK=$'\e[0;30m'    # black
