@@ -1,0 +1,81 @@
+call plug#begin('~/.vim/plugged')
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'ervandew/supertab'
+"Plug 'davidhalter/jedi-vim', { 'for': 'python' }
+"Plug 'vim-airline/vim-airline'
+"Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-gitgutter'
+Plug 'tpope/vim-fugitive'
+call plug#end()
+
+" Basic Settings
+"
+filetype indent plugin on
+syntax on
+set mouse=a
+set background=light
+set number
+set hidden
+set visualbell
+set hlsearch
+
+" Highlight trailing white space.
+nmap <c-a> /\s\+$<CR>
+
+" Delete current buffer without messing up windows
+" nmap <c-q> :bp | bd # <CR>
+
+" Remap window movement to ctrl-hjkl
+nmap <C-j> <C-w>j
+nmap <C-k> <C-w>k
+nmap <C-h> <C-w>h
+nmap <C-l> <C-w>l
+
+" Make it so space clears highlighting after a search
+nnoremap <SPACE> <SPACE>:noh<CR>
+
+
+" not to break on words
+set formatoptions=1
+set linebreak
+
+" fixing up moving line by line in the paragraph
+nnoremap j gj
+nnoremap k gk
+vnoremap j gj
+vnoremap k gk
+
+" Custom settings for python code settings
+set tabstop=4
+set expandtab
+set softtabstop=4
+set shiftwidth=4
+set shiftround
+autocmd FileType python set colorcolumn=80 
+highlight ColorColumn ctermbg=4
+
+" Vim Airline settings
+set nocompatible   " Disable vi-compatibility
+set encoding=utf-8 " Necessary to show Unicode glyphs
+"set laststatus=2
+"let g:airline_theme='wombat'
+
+" Map Nerd Tree Key
+map <F2> :NERDTreeToggle<CR>
+
+" Jedi-Mode Settings
+" autocmd FileType python setlocal completeopt-=preview
+let g:jedi#popup_on_dot = 0
+let g:jedi#auto_initialization = 1
+let g:jedi#auto_vim_configuration = 1
+
+" Fix gitgutter
+highlight clear SignColumn
+hi StatusLine ctermfg=2 ctermbg=10
+hi StatusLineNC ctermfg=3 ctermbg=10
+
+" Vimdiff colors
+" highlight DiffAdd cterm=none ctermfg=Green ctermbg=Green gui=none guifg=DarkGrey guibg=Green
+" highlight DiffDelete cterm=none ctermfg=Red ctermbg=Red gui=none guifg=DarkGrey guibg=Red
+" highlight DiffChange cterm=none ctermfg=Yellow ctermbg=Yellow gui=none guifg=DarkGrey guibg=Yellow
+" highlight DiffText cterm=none ctermfg=Magenta ctermbg=Magenta gui=none guifg=DarkGrey guibg=Magenta
