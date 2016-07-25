@@ -18,7 +18,8 @@ script_path = sys.path[0]
 
 install_paths = [('bash_profile', ('~/.bash_profile', '~/.bashrc')),
                 ('tmux.conf', ('~/.tmux.conf',)),
-                ('gitconfig', ('~/.gitconfig',))]
+                ('gitconfig', ('~/.gitconfig',)),
+                ('vim/vimrc', ('~/.vimrc',))]
 
 # Get user responses
 contin = raw_input("This script sets up your configuration files by adding"
@@ -37,6 +38,9 @@ append = yes_no_to_true_false(
         raw_input("Would you like to append your current config files?"
                   " (y,n):"))
 
+# Symlink .vim folder
+
+os.system('ln -s ~/.vim ./vim')
         
 # Handle Config Files
 for config_file, paths in install_paths:
