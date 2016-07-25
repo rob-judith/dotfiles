@@ -38,10 +38,6 @@ append = yes_no_to_true_false(
         raw_input("Would you like to append your current config files?"
                   " (y,n):"))
 
-# Symlink .vim folder
-
-os.system('ln -s ~/.vim ./vim')
-        
 # Handle Config Files
 for config_file, paths in install_paths:
     for path in paths:
