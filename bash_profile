@@ -66,7 +66,7 @@ function git_color() {
         echo -e $DY
     elif [[ $git_status =~ "Your branch is behind" ]]; then
         echo -e $DM
-    elif [[ $git_status =~ "nothing to comit" ]]; then
+    elif [[ $git_status =~ "nothing to commit" ]]; then
         echo -e $DG
     else 
         echo -en $DR
