@@ -62,14 +62,14 @@ function git_color() {
     local git_status="$(git status 2> /dev/null)"
     
     # Add second catch for new git output
-    if [[ $git_status =~ "working directory clean" ]]; then 
-        echo -e $DG
-    elif [[ $git_status =~ "working tree clean" ]]; then
-        echo -e $DG
-    elif [[ $git_status =~ "Your branch is ahead of" ]]; then
+    if [[ $git_status =~ "Your branch is ahead of" ]]; then
         echo -e $DY
     elif [[ $git_status =~ "Your branch is behind" ]]; then
         echo -e $DM
+    elif [[ $git_status =~ "working directory clean" ]]; then 
+        echo -e $DG
+    elif [[ $git_status =~ "working tree clean" ]]; then
+        echo -e $DG
     elif [[ $git_status =~ "nothing to comit" ]]; then
         echo -e $DG
     else 
