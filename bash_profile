@@ -76,3 +76,8 @@ function git_color() {
 # Set bash line
 export PROMPT_DIRTRIM=2
 export PS1="\[$DC\]\u@\h\[$ENDCOLOR\]:\[$DB\]\w\[\$(git_color)\]\$(__git_ps1)\[$ENDCOLOR\]:\$ "
+
+
+# Set Colors thanks Josesph
+export LSCOLORS=ExFxBxDxCxegedabagacad # specifies colors for mac
+export LS_COLORS=$LS_COLORS:'di=1;34:ln=36:*.py=31:*.txt=33:*.ipynb=35:*.csv=33' # specifies colors for linux
