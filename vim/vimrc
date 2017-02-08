@@ -1,11 +1,12 @@
 call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'ervandew/supertab'
-"Plug 'davidhalter/jedi-vim', { 'for': 'python' }
-"Plug 'vim-airline/vim-airline'
-"Plug 'vim-airline/vim-airline-themes'
+Plug 'davidhalter/jedi-vim', { 'for': 'python' }
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-gitgutter'
 Plug 'tpope/vim-fugitive'
+Plug 'flazz/vim-colorschemes'
 call plug#end()
 
 " Basic Settings
@@ -14,6 +15,7 @@ filetype indent plugin on
 syntax on
 set mouse=a
 set background=light
+set backspace=2 " make backspace work line a sane program.
 set number
 set hidden
 set visualbell
@@ -51,14 +53,15 @@ set expandtab
 set softtabstop=4
 set shiftwidth=4
 set shiftround
-autocmd FileType python set colorcolumn=80 
+autocmd FileType python set colorcolumn=80
+
 highlight ColorColumn ctermbg=4
 
 " Vim Airline settings
 set nocompatible   " Disable vi-compatibility
 set encoding=utf-8 " Necessary to show Unicode glyphs
 "set laststatus=2
-"let g:airline_theme='wombat'
+let g:airline_theme='wombat'
 
 " Map Nerd Tree Key
 map <F2> :NERDTreeToggle<CR>
@@ -68,6 +71,8 @@ map <F2> :NERDTreeToggle<CR>
 let g:jedi#popup_on_dot = 0
 let g:jedi#auto_initialization = 1
 let g:jedi#auto_vim_configuration = 1
+let g:jedi#show_call_signatures = 0
+let g:jedi#max_doc_height = 10
 
 " Fix gitgutter
 highlight clear SignColumn
@@ -78,4 +83,8 @@ hi StatusLineNC ctermfg=3 ctermbg=10
 " highlight DiffAdd cterm=none ctermfg=Green ctermbg=Green gui=none guifg=DarkGrey guibg=Green
 " highlight DiffDelete cterm=none ctermfg=Red ctermbg=Red gui=none guifg=DarkGrey guibg=Red
 " highlight DiffChange cterm=none ctermfg=Yellow ctermbg=Yellow gui=none guifg=DarkGrey guibg=Yellow
+
+" Set Colorscheme
+colorscheme Monokai
+
 " highlight DiffText cterm=none ctermfg=Magenta ctermbg=Magenta gui=none guifg=DarkGrey guibg=Magenta
