@@ -28,7 +28,12 @@
 (use-package helm
   :ensure t)
 (use-package neotree
-   :ensure t)
+  :ensure t
+  :config
+  (require 'neotree)
+  (global-set-key [f8] 'neotree-toggle)
+  (setq neo-theme (if (display-graphic-p) 'arrow 'arrow))
+  )
 (use-package projectile
    :ensure t)
 (use-package yasnippet
@@ -45,18 +50,24 @@
   :ensure t)
 (use-package better-defaults
   :ensure t)
-;; (use-package material-theme
-;;   :ensure t)
 (use-package zenburn-theme
    :ensure t)
 
-;;
-(require 'neotree)
-(global-set-key [f8] 'neotree-toggle)
-(setq neo-theme (if (display-graphic-p) 'arrow 'arrow))
-
-;;Interface
+;;Mouse Interface
 (xterm-mouse-mode)
+(defun scroll-up-10-lines ()
+  "Scroll up 10 lines"
+  (interactive)
+  (scroll-up 10))
+
+(defun scroll-down-10-lines ()
+  "Scroll down 10 lines"
+  (interactive)
+  (scroll-down 10))
+
+(global-set-key (kbd "<mouse-4>") 'scroll-down-10-lines) ;
+(global-set-key (kbd "<mouse-5>") 'scroll-up-10-lines) ;
+
 
 
 ;; Emacs theme 
@@ -66,6 +77,7 @@
   :config
   (require 'spaceline-config)
   (spaceline-emacs-theme))
+
 ;; Get rid of anoying bezel on the mode-line
 (load-theme 'zenburn t)
 (set-face-attribute 'mode-line nil :box nil)
@@ -82,11 +94,6 @@
 (define-key helm-find-files-map "\t" 'helm-execute-persistent-action)
 (set-face-attribute 'helm-header nil :box nil)
 (set-face-attribute 'helm-source-header nil :box nil)
-
-;; ;; IDO
-;; (require 'ido)
-;; (ido-mode t)
-
 
 (evil-mode t)
 (setq evil-insert-state-map (make-sparse-keymap))
@@ -121,19 +128,3 @@
 
                     
 (setq tramp-default-method "ssh")
-
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(org-agenda-files (quote ("~/org.test")))
- '(package-selected-packages
-   (quote
-    (yaml-mode ein zenburn-theme use-package spaceline projectile neotree markdown-mode magit helm flycheck exec-path-from-shell evil elpy better-defaults))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
