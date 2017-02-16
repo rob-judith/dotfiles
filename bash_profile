@@ -15,6 +15,7 @@ fi
 # Don't let me install python packages without a virtual env
 export PIP_REQUIRE_VIRTUALENV=true
 
+alias em='emacsclient -t -a emacs'
 alias ll="ls -lh"
 alias la="ls -a"
 

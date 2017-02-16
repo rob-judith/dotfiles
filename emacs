@@ -67,8 +67,9 @@
 
 (global-set-key (kbd "<mouse-4>") 'scroll-down-10-lines) ;
 (global-set-key (kbd "<mouse-5>") 'scroll-up-10-lines) ;
-
-
+;; on Linux, make Control+wheel do increase/decrease font size
+(global-set-key (kbd "<C-mouse-4>") 'text-scale-increase)
+(global-set-key (kbd "<C-mouse-5>") 'text-scale-decrease)
 
 ;; Emacs theme 
 ;;(load-theme 'material t)
