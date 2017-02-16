@@ -126,6 +126,8 @@
 
 ;; Save location
 (setq backup-directory-alist `(("." . "~/.saves")))
+(setq auto-save-file-name-transforms
+      `((".*"  "~/.saves/" t)))
 
                     
 (setq tramp-default-method "ssh")
