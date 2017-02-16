@@ -26,7 +26,19 @@
 (use-package markdown-mode
   :ensure t)
 (use-package helm
-  :ensure t)
+  :config
+  (require 'helm-config)
+  (helm-mode 1)
+  (global-set-key (kbd "M-x") #'helm-M-x)
+  (global-set-key (kbd "C-x r b") #'helm-filtered-bookmarks)
+  (global-set-key (kbd "C-x C-f") #'helm-find-files)
+  (setq helm-M-x-fuzzy-match t) ;; optional fuzzy matching for helm-M-x
+  (global-set-key (kbd "M-y") 'helm-show-kill-ring)
+  (define-key helm-find-files-map "\t" 'helm-execute-persistent-action)
+  (set-face-attribute 'helm-header nil :box nil)
+  (set-face-attribute 'helm-source-header nil :box nil)
+)
+
 (use-package neotree
   :ensure t
   :config
@@ -34,12 +46,12 @@
   (global-set-key [f8] 'neotree-toggle)
   (setq neo-theme (if (display-graphic-p) 'arrow 'arrow))
   )
+
 (use-package projectile
    :ensure t)
 (use-package yasnippet
    :ensure t)
-(use-package magit
-  :ensure t)
+(use-package magit)
 (use-package company
   :ensure t)
 (use-package flycheck
@@ -85,16 +97,6 @@
 (set-face-attribute 'mode-line-inactive nil :box nil)
 
 ;; HELM Set Up
-(require 'helm-config)
-(helm-mode 1)
-(global-set-key (kbd "M-x") #'helm-M-x)
-(global-set-key (kbd "C-x r b") #'helm-filtered-bookmarks)
-(global-set-key (kbd "C-x C-f") #'helm-find-files)
-(setq helm-M-x-fuzzy-match t) ;; optional fuzzy matching for helm-M-x
-(global-set-key (kbd "M-y") 'helm-show-kill-ring)
-(define-key helm-find-files-map "\t" 'helm-execute-persistent-action)
-(set-face-attribute 'helm-header nil :box nil)
-(set-face-attribute 'helm-source-header nil :box nil)
 
 (evil-mode t)
 (setq evil-insert-state-map (make-sparse-keymap))
