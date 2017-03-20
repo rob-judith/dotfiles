@@ -17,16 +17,19 @@ def yes_no_to_true_false(string):
 
 script_path = sys.path[0]
 
-install_paths = [('bash_profile', ('~/.bash_profile', '~/.bashrc')),
-                 ('tmux.conf', ('~/.tmux.conf',)),
-                 ('gitconfig', ('~/.gitconfig',)),
-                 ('vim/vimrc', ('~/.vimrc',))]
+install_paths = [
+    ('bash_profile', ('~/.bash_profile', '~/.bashrc')),
+    ('tmux.conf', ('~/.tmux.conf',)),
+    ('gitconfig', ('~/.gitconfig',)),
+    ('vim/vimrc', ('~/.vimrc',)),
+    ('emacs', ('~/.emacs',))
+]
 
 # Get user responses
 contin = raw_input("This script sets up your configuration files by adding"
                    " to the dotfiles configuration files. \n"
                    "Would you like to continue (y,n):"
-        )
+                   )
 
 # Ask the user if he wants to exit.
 if not yes_no_to_true_false(contin):
@@ -52,10 +55,16 @@ for config_file, paths in install_paths:
             git_line = ("[include]\n"
                         "    path = {}\n\n"
                         "[core]\n"
-                        "    excludesfile = {}\n").format(script_path + '/' +
-                                                config_file, script_path +
-                                                '/gitignore')
+                        "    excludesfile = {}\n").format(
+                            script_path + '/' + config_file,
+                            script_path + '/gitignore'
+                        )
             os.system('echo "{}" > "{}"'.format(git_line, path))
+        elif config_file == 'emacs':
+            emacs_line = ('(load "{}")'.format(
+                script_path + '/' + config_file
+            ))
+            os.system('echo "{}" > "{}"'.format(emacs_line, path))
         else:
             os.system('echo "source {}" > {}'.format(script_path + '/' +
                       config_file, path))
