@@ -7,6 +7,7 @@ custom settings. It will also optionally back up your old config files to
 import os
 import sys
 
+
 def yes_no_to_true_false(string):
     if string[0].lower() == 'y':
         return True
@@ -17,14 +18,14 @@ def yes_no_to_true_false(string):
 script_path = sys.path[0]
 
 install_paths = [('bash_profile', ('~/.bash_profile', '~/.bashrc')),
-                ('tmux.conf', ('~/.tmux.conf',)),
-                ('gitconfig', ('~/.gitconfig',)),
-                ('vim/vimrc', ('~/.vimrc',))]
+                 ('tmux.conf', ('~/.tmux.conf',)),
+                 ('gitconfig', ('~/.gitconfig',)),
+                 ('vim/vimrc', ('~/.vimrc',))]
 
 # Get user responses
 contin = raw_input("This script sets up your configuration files by adding"
-        " to the dotfiles configuration files. \n" 
-        "Would you like to continue (y,n):"
+                   " to the dotfiles configuration files. \n"
+                   "Would you like to continue (y,n):"
         )
 
 # Ask the user if he wants to exit.
@@ -45,7 +46,7 @@ for config_file, paths in install_paths:
         if os.path.isfile(path):
             os.system('mv "{}" "{}"'.format(path, path+'.backup'))
             print 'Backing up "{}" to "{}"'.format(path, path+'.backup')
-        
+
         print 'Adding source to "{}"'.format(path)
         if config_file == 'gitconfig':
             git_line = ("[include]\n"
@@ -56,7 +57,7 @@ for config_file, paths in install_paths:
                                                 '/gitignore')
             os.system('echo "{}" > "{}"'.format(git_line, path))
         else:
-            os.system('echo "source {}" > {}'.format(script_path + '/' + 
+            os.system('echo "source {}" > {}'.format(script_path + '/' +
                       config_file, path))
 
         if os.path.isfile(path+'.backup') and append:
@@ -66,5 +67,3 @@ for config_file, paths in install_paths:
         if os.path.isfile(path+'.backup') and not backup:
             print "Removing backup {}".format(path + '.backup')
             os.system('rm "{}"'.format(path + '.backup'))
-
-
