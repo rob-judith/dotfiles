@@ -96,11 +96,11 @@
 (set-face-attribute 'mode-line nil :box nil)
 (set-face-attribute 'mode-line-inactive nil :box nil)
 
-;; HELM Set Up
-
 (evil-mode t)
 (setq evil-insert-state-map (make-sparse-keymap))
 (define-key evil-insert-state-map (kbd "<escape>") 'evil-normal-state)
+(define-key evil-insert-state-map (kbd "C-c C-k") 'evil-insert-digraph)
+
 ;; Rebind neotree commands
 (evil-define-key 'normal neotree-mode-map (kbd "TAB") 'neotree-enter)
 (evil-define-key 'normal neotree-mode-map (kbd "SPC") 'neotree-enter)
@@ -115,6 +115,7 @@
 (setq python-shell-interpreter "ipython"
       python-shell-interpreter-args "--simple-prompt -i")
 (setq python-shell-completion-native-enable nil)
+(setq elpy-test-runner 'elpy-test-pytest-runner)
 ;; Jedi has default rope for refactoring
 (setq elpy-rpc-backend "jedi")
 (use-package ein
