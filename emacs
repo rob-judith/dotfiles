@@ -24,6 +24,7 @@
      (exec-path-from-shell-initialize)))
 
 (use-package markdown-mode
+  :defer
   :ensure t)
 (use-package helm
   :config
@@ -40,6 +41,7 @@
 )
 
 (use-package neotree
+  :defer
   :ensure t
   :config
   (require 'neotree)
@@ -48,15 +50,19 @@
   )
 
 (use-package projectile
+   :defer
    :ensure t)
 (use-package yasnippet
+   :defer
    :ensure t)
-(use-package magit)
+(use-package magit
+  :defer
+  )
 (use-package company
-  :ensure t)
+  :defer
+  :ensure t
+)
 (use-package flycheck
-  :ensure t)
-(use-package elpy
   :ensure t)
 (use-package evil
   :ensure t)
@@ -109,23 +115,56 @@
 
 ;; Python configuration
 ;; -------------------
-(elpy-enable)
-(elpy-use-ipython)
+;; (use-package elpy
+;;   :ensure t)
+;; (elpy-enable)
+;; (elpy-use-ipython)
+;; (setq elpy-test-runner 'elpy-test-pytest-runner)
+;; ;; Jedi has default rope for refactoring
+;; (setq elpy-rpc-backend "jedi")
 (require 'python)
 (setq python-shell-interpreter "ipython"
       python-shell-interpreter-args "--simple-prompt -i")
 (setq python-shell-completion-native-enable nil)
-(setq elpy-test-runner 'elpy-test-pytest-runner)
-;; Jedi has default rope for refactoring
-(setq elpy-rpc-backend "jedi")
 (use-package ein
+  :defer
   :config
   (require 'ein))
+;; Python specific settings
+(use-package anaconda-mode
+  :defer
+  :ensure t
+  )
+(use-package company-anaconda
+  :ensure t
+  :after company
+  :config
+  (add-to-list 'company-backends 'company-anaconda))
+(use-package pyvenv
+  :defer
+  :ensure t
+  )
+(use-package pytest
+  :defer
+  :ensure t)
+
+(defun my-python-settings ()
+  "Configure python mode."
+  (linum-mode 1)
+  (anaconda-mode 1)
+  (anaconda-eldoc-mode 1)
+  (company-mode 1)
+  (pyvenv-mode 1)
+  (pyvenv-workon "develop"))
+(add-hook 'python-mode-hook 'my-python-settings)
 
 ;; Line number configuration
 (require 'linum)
-(global-linum-mode t)
+(global-linum-mode 0)
 (setq linum-format "%d ")
+
+;;Flycheck global mode
+(global-flycheck-mode)
 
 ;; Save location
 (setq backup-directory-alist `(("." . "~/.saves")))
@@ -134,3 +173,4 @@
 
                     
 (setq tramp-default-method "ssh")
+
