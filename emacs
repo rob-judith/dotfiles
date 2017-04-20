@@ -79,7 +79,8 @@
    :ensure t)
 
 (use-package magit
-  :defer)
+  :defer
+  :ensure t)
 
 (use-package company
   :defer
@@ -106,7 +107,11 @@
   (evil-leader/set-key "f" 'helm-find-files)
   (evil-leader/set-key "b" 'switch-to-buffer)
   (evil-leader/set-key "k" 'kill-buffer)
-  (evil-leader/set-key "m" 'helm-bookmarks))
+  (evil-leader/set-key "m" 'helm-bookmarks)
+  (evil-leader/set-key "g" 'magit-status)
+  (evil-leader/set-key "p f" 'helm-projectile-find-file)
+  (evil-leader/set-key "p p" 'projectile-mode)
+  (evil-leader/set-key "p h" 'helm-projectile))
 
 (use-package evil
   :after evil-leader
@@ -173,24 +178,25 @@
       python-shell-interpreter-args "--simple-prompt -i")
 (setq python-shell-completion-native-enable nil)
 
-;; (use-package anaconda-mode
-;;   :defer
-;;   :ensure t)
-;; (use-package company-anaconda
-;;   :ensure t
-;;   :after company
-;;   :config
-;;   (add-to-list 'company-backends 'company-anaconda))
+(use-package anaconda-mode
+  :defer
+  :ensure t)
+(use-package company-anaconda
+  :ensure t
+  :after company
+  :config
+  (add-to-list 'company-backends 'company-anaconda))
 ;; (use-package company-jedi
 ;;   :ensure t)
 
-(use-package elpy
-  :ensure t)
-(elpy-enable)
-(elpy-use-ipython)
-(setq elpy-test-runner 'elpy-test-pytest-runner)
-;; Jedi has default rope for refactoring
-(setq elpy-rpc-backend "jedi")
+;; (use-package elpy
+;;   :ensure t
+;;   :config
+;;   (elpy-enable)
+;;   (elpy-use-ipython)
+;;   (setq elpy-test-runner 'elpy-test-pytest-runner)
+;;   Jedi has default rope for refactoring
+;;   (setq elpy-rpc-backend "jedi"))
 
 (use-package pyvenv
   :defer
@@ -222,7 +228,8 @@
   (company-mode 1)
   ;;(add-to-list 'company-backend 'company-jedi)
   (pyvenv-mode 1)
-  (pyvenv-workon "develop"))
+  (pyvenv-workon "develop")
+  (electric-pair-mode 1))
 
 (add-hook 'python-mode-hook 'my-python-settings)
 (add-hook 'compilation-mode-hook 'ansi-color-for-comint-mode-on)
@@ -246,6 +253,14 @@
 
 ;;End Mouse Settings
 
+;;Visual Bell
+(defun my-terminal-visible-bell ()
+   "A friendlier visual bell effect."
+   (invert-face 'mode-line)
+   (run-with-timer 0.1 nil 'invert-face 'mode-line))
+ 
+(setq visible-bell nil)
+(setq ring-bell-function 'my-terminal-visible-bell)
 
 ;; Line number configuration
 (require 'linum)
