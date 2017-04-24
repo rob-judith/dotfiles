@@ -105,13 +105,14 @@
   (evil-leader/set-leader "<SPC>")
   (evil-leader/set-key "<SPC>" 'helm-M-x)
   (evil-leader/set-key "f" 'helm-find-files)
-  (evil-leader/set-key "b" 'switch-to-buffer)
+  (evil-leader/set-key "b" 'helm-mini)
   (evil-leader/set-key "k" 'kill-buffer)
   (evil-leader/set-key "m" 'helm-bookmarks)
   (evil-leader/set-key "g" 'magit-status)
   (evil-leader/set-key "p f" 'helm-projectile-find-file)
   (evil-leader/set-key "p p" 'projectile-mode)
-  (evil-leader/set-key "p h" 'helm-projectile))
+  (evil-leader/set-key "p h" 'helm-projectile)
+  (evil-leader/set-key "p g" 'helm-projectile-grep))
 
 (use-package evil
   :after evil-leader
@@ -214,8 +215,8 @@
   (require 'ein-loaddefs)
   (require 'ein-notebook)
   (require 'ein-subpackages)
-  (setq ein:default-url-or-port "http://localhost:9667/")
-  (setq ein:url-or-port '("http://localhost:8888/"
+  (setq ein:default-url-or-port "9667")
+  (setq ein:url-or-port '("8888/"
                           "http://192.168.111.1:9666/"
                           "http://192.168.111.2:9666/"))
   )
@@ -228,7 +229,6 @@
   (company-mode 1)
   ;;(add-to-list 'company-backend 'company-jedi)
   (pyvenv-mode 1)
-  (pyvenv-workon "develop")
   (electric-pair-mode 1))
 
 (add-hook 'python-mode-hook 'my-python-settings)
