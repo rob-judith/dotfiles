@@ -204,9 +204,12 @@
   :ensure t
   :config
   (setenv "WORKON_HOME" "~/envs/"))
-;; (use-package pytest
-;;   :defer
-;;   :ensure t)
+(use-package pytest
+  :defer
+  :ensure t
+  :config
+  (setq pytest-cmd-flags "")
+  (setq pytest-global-name "pytest"))
 
 (use-package ein
   :defer
@@ -224,8 +227,8 @@
 (defun my-python-settings ()
   "Configure python mode."
   (linum-mode 1)
-  ;; (anaconda-mode 1)
-  ;; (anaconda-eldoc-mode 1)
+  (anaconda-mode 1)
+  (anaconda-eldoc-mode 1)
   (company-mode 1)
   ;;(add-to-list 'company-backend 'company-jedi)
   (pyvenv-mode 1)
