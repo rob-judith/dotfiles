@@ -38,7 +38,7 @@ alias tmuxs="tmux new-session -s"
 alias pycclean='find ./ -name "*.pyc" -delete'
 
 #Make Project
-alias mkproj='cookiecutter git@github.com:StuckAt7/SCL-cookiecutter.git'
+alias mkproj='cookiecutter git@github.com:StuckAt7/SCL-cookiecutter.git --checkout rj_custom'
 
 # Define Colors
 # dark colors
