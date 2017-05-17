@@ -8,7 +8,6 @@
 ;;--------------------------------------------------------------------------------
 ;;                              Initial Setup
 ;;--------------------------------------------------------------------------------
-
 (require 'package)
 (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/"))
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
@@ -33,7 +32,6 @@
 ;;--------------------------------------------------------------------------------
 ;;                             Packages
 ;;--------------------------------------------------------------------------------
-
 (use-package markdown-mode
   :defer
   :ensure t)
@@ -144,7 +142,6 @@
 ;;--------------------------------------------------------------------------------
 ;;                              Theaming
 ;;--------------------------------------------------------------------------------
-
 (use-package spaceline
   :ensure t
   :config
@@ -173,7 +170,6 @@
 ;;--------------------------------------------------------------------------------
 ;;                              Python configuration
 ;;--------------------------------------------------------------------------------
-
 (require 'python)
 (setq python-shell-interpreter "ipython"
       python-shell-interpreter-args "--simple-prompt -i")
@@ -187,6 +183,7 @@
   :after company
   :config
   (add-to-list 'company-backends 'company-anaconda))
+
 ;; (use-package company-jedi
 ;;   :ensure t)
 
@@ -204,6 +201,7 @@
   :ensure t
   :config
   (setenv "WORKON_HOME" "~/envs/"))
+
 (use-package pytest
   :defer
   :ensure t
@@ -221,8 +219,7 @@
   (setq ein:default-url-or-port "9667")
   (setq ein:url-or-port '("8888/"
                           "http://192.168.111.1:9666/"
-                          "http://192.168.111.2:9666/"))
-  )
+                          "http://192.168.111.2:9666/")))
 
 (defun my-python-settings ()
   "Configure python mode."
@@ -232,7 +229,8 @@
   (company-mode 1)
   ;;(add-to-list 'company-backend 'company-jedi)
   (pyvenv-mode 1)
-  (electric-pair-mode 1))
+  (electric-pair-mode 1)
+  (local-set-key (kbd "C-c C-t") 'pytest-all))
 
 (add-hook 'python-mode-hook 'my-python-settings)
 (add-hook 'compilation-mode-hook 'ansi-color-for-comint-mode-on)
@@ -240,6 +238,7 @@
 ;;--------------------------------------------------------------------------------
 ;;                              Misc. Settings
 ;;--------------------------------------------------------------------------------
+;; Mouse Settings
 (xterm-mouse-mode)
 (defun scroll-up-10-lines ()
   "Scroll up 10 lines."
@@ -253,7 +252,6 @@
 
 (global-set-key (kbd "<mouse-4>") 'scroll-down-10-lines) ;
 (global-set-key (kbd "<mouse-5>") 'scroll-up-10-lines) ;
-
 ;;End Mouse Settings
 
 ;;Visual Bell
@@ -276,4 +274,9 @@
 
 
 (setq tramp-default-method "ssh")
+
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((python . t)))
+(setq org-src-fontify-natively t)
 ;;; Emacs ends here
