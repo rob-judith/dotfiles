@@ -79,7 +79,7 @@ function git_color() {
 
 # Set bash line
 # export PROMPT_DIRTRIM=2 #Trim bash
-export PS1="\[$DC\]\u@\h\[$ENDCOLOR\] :: \A :: \[$DB\]\w\[\$(git_color)\]\$(__git_ps1)\[$ENDCOLOR\]\n[\!]:$ "
+export PS1="\[$DC\]\u@\h\[$ENDCOLOR\] :: \[$DB\]\w\[\$(git_color)\]\$(__git_ps1)\[$ENDCOLOR\]\n$ "
 
 
 # Set Colors thanks Josesph
