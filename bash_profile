@@ -18,6 +18,7 @@ export PIP_REQUIRE_VIRTUALENV=true
 alias em='emacsclient -t -a emacs'
 alias ll="ls -lh"
 alias la="ls -a"
+alias fwatch="tail -f -n 100"
 
 # Grep color
 alias grep='grep --color=auto'
