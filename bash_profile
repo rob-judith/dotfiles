@@ -38,6 +38,9 @@ alias tmuxs="tmux new-session -s"
 # Clean pyc files
 alias pycclean='find ./ -name "*.pyc" -delete'
 
+# Refresh mysql prevliges
+alias refresh-privliges='/opt/refresh-mysql-privliges'
+
 #Make Project
 alias mkproj='cookiecutter git@github.com:StuckAt7/SCL-cookiecutter.git --checkout rj_custom'
 
