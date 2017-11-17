@@ -284,8 +284,8 @@
  'org-babel-load-languages
  '((python . t)
    (ipython . t)
-   (sh .t)
-   (R .t)))
+   (sh . t)
+   (R . t)))
 
 ;;; execute block evaluation without confirmation
 (setq org-confirm-babel-evaluate nil)
