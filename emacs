@@ -280,6 +280,9 @@
 ;;--------------------------------------------------------------------------------
 ;;                            Org mode settings
 ;;--------------------------------------------------------------------------------
+(use-package ob-ipython
+  :ensure t)
+
 (org-babel-do-load-languages
  'org-babel-load-languages
  '((python . t)
@@ -294,4 +297,6 @@
 (add-hook 'org-babel-after-execute-hook 'org-display-inline-images 'append)
 
 (setq org-src-fontify-natively t)
+
+(add-to-list 'org-latex-minted-langs '(ipython "python"))
 ;;; Emacs ends here
