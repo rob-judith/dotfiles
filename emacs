@@ -25,6 +25,7 @@
  (require 'use-package))
 
 (use-package exec-path-from-shell
+  :ensure t
   :config
    (when (memq window-system '(mac ns))
      (exec-path-from-shell-initialize)))
@@ -44,6 +45,7 @@
   (global-set-key (kbd "C-x C-f") #'helm-find-files)
   (setq helm-M-x-fuzzy-match t) ;; optional fuzzy matching for helm-M-x
   (global-set-key (kbd "M-y") 'helm-show-kill-ring)
+
   ;; Recomended Remaps
   (define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action) ; rebind tab to run persistent action
   (define-key helm-map (kbd "C-i") 'helm-execute-persistent-action) ; make TAB work in terminal
@@ -275,8 +277,21 @@
 
 (setq tramp-default-method "ssh")
 
+;;--------------------------------------------------------------------------------
+;;                            Org mode settings
+;;--------------------------------------------------------------------------------
 (org-babel-do-load-languages
  'org-babel-load-languages
- '((python . t)))
+ '((python . t)
+   (ipython . t)
+   (sh .t)
+   (R .t)))
+
+;;; execute block evaluation without confirmation
+(setq org-confirm-babel-evaluate nil)
+
+;;; display/update images in the buffer after evaluation
+(add-hook 'org-babel-after-execute-hook 'org-display-inline-images 'append)
+
 (setq org-src-fontify-natively t)
 ;;; Emacs ends here
