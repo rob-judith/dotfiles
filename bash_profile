@@ -32,8 +32,9 @@ alias mkdir='mkdir -pv'
 alias wget='wget -c'
 
 # Tmux aliases
+alias tmux="tmux -2"
 alias tmuxa="tmux a -t"
-alias tmuxs="tmux new-session -s"
+alias tmuxs="tmux new-session -s -2"
 
 # Clean pyc files
 alias pycclean='find ./ -name "*.pyc" -delete'
