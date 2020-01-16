@@ -13,7 +13,7 @@ else
 fi
 
 # Don't let me install python packages without a virtual env
-export PIP_REQUIRE_VIRTUALENV=true
+export PIP_REQUIRE_VIRTUALENV=false
 
 alias em='emacsclient -t -a emacs'
 alias ll="ls -lh"

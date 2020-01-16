@@ -172,71 +172,71 @@
 ;;--------------------------------------------------------------------------------
 ;;                              Python configuration
 ;;--------------------------------------------------------------------------------
-(require 'python)
-(setq python-shell-interpreter "ipython"
-      python-shell-interpreter-args "--simple-prompt -i")
-(setq python-shell-completion-native-enable nil)
-
-(use-package anaconda-mode
-  :defer
-  :ensure t)
-(use-package company-anaconda
-  :ensure t
-  :after company
-  :config
-  (add-to-list 'company-backends 'company-anaconda))
-
-;; (use-package company-jedi
+;; (require 'python)
+;; (setq python-shell-interpreter "ipython"
+;;       python-shell-interpreter-args "--simple-prompt -i")
+;; (setq python-shell-completion-native-enable nil)
+;; 
+;; (use-package anaconda-mode
+;;   :defer
 ;;   :ensure t)
-
-;; (use-package elpy
+;; (use-package company-anaconda
+;;   :ensure t
+;;   :after company
+;;   :config
+;;   (add-to-list 'company-backends 'company-anaconda))
+;; 
+;; ;; (use-package company-jedi
+;; ;;   :ensure t)
+;; 
+;; ;; (use-package elpy
+;; ;;   :ensure t
+;; ;;   :config
+;; ;;   (elpy-enable)
+;; ;;   (elpy-use-ipython)
+;; ;;   (setq elpy-test-runner 'elpy-test-pytest-runner)
+;; ;;   Jedi has default rope for refactoring
+;; ;;   (setq elpy-rpc-backend "jedi"))
+;; 
+;; (use-package pyvenv
+;;   :defer
 ;;   :ensure t
 ;;   :config
-;;   (elpy-enable)
-;;   (elpy-use-ipython)
-;;   (setq elpy-test-runner 'elpy-test-pytest-runner)
-;;   Jedi has default rope for refactoring
-;;   (setq elpy-rpc-backend "jedi"))
-
-(use-package pyvenv
-  :defer
-  :ensure t
-  :config
-  (setenv "WORKON_HOME" "~/envs/"))
-
-(use-package pytest
-  :defer
-  :ensure t
-  :config
-  (setq pytest-cmd-flags "")
-  (setq pytest-global-name "pytest"))
-
-(use-package ein
-  :defer
-  :config
-  (require 'ein)
-  (require 'ein-loaddefs)
-  (require 'ein-notebook)
-  (require 'ein-subpackages)
-  (setq ein:default-url-or-port "9667")
-  (setq ein:url-or-port '("8888/"
-                          "http://192.168.111.1:9666/"
-                          "http://192.168.111.2:9666/")))
-
-(defun my-python-settings ()
-  "Configure python mode."
-  (linum-mode 1)
-  (anaconda-mode 1)
-  (anaconda-eldoc-mode 1)
-  (company-mode 1)
-  ;;(add-to-list 'company-backend 'company-jedi)
-  (pyvenv-mode 1)
-  (electric-pair-mode 1)
-  (local-set-key (kbd "C-c C-t") 'pytest-all))
-
-(add-hook 'python-mode-hook 'my-python-settings)
-(add-hook 'compilation-mode-hook 'ansi-color-for-comint-mode-on)
-
+;;   (setenv "WORKON_HOME" "~/envs/"))
+;; 
+;; (use-package pytest
+;;   :defer
+;;   :ensure t
+;;   :config
+;;   (setq pytest-cmd-flags "")
+;;   (setq pytest-global-name "pytest"))
+;; 
+;; (use-package ein
+;;   :defer
+;;   :config
+;;   (require 'ein)
+;;   (require 'ein-loaddefs)
+;;   (require 'ein-notebook)
+;;   (require 'ein-subpackages)
+;;   (setq ein:default-url-or-port "9667")
+;;   (setq ein:url-or-port '("8888/"
+;;                           "http://192.168.111.1:9666/"
+;;                           "http://192.168.111.2:9666/")))
+;; 
+;; (defun my-python-settings ()
+;;   "Configure python mode."
+;;   (linum-mode 1)
+;;   (anaconda-mode 1)
+;;   (anaconda-eldoc-mode 1)
+;;   (company-mode 1)
+;;   ;;(add-to-list 'company-backend 'company-jedi)
+;;   (pyvenv-mode 1)
+;;   (electric-pair-mode 1)
+;;   (local-set-key (kbd "C-c C-t") 'pytest-all))
+;; 
+;; (add-hook 'python-mode-hook 'my-python-settings)
+;; (add-hook 'compilation-mode-hook 'ansi-color-for-comint-mode-on)
+;; 
 ;;--------------------------------------------------------------------------------
 ;;                              Misc. Settings
 ;;--------------------------------------------------------------------------------
@@ -280,15 +280,14 @@
 ;;--------------------------------------------------------------------------------
 ;;                            Org mode settings
 ;;--------------------------------------------------------------------------------
-(use-package ob-ipython
-  :ensure t)
+;; (use-package ob-ipython
+;;   :ensure t)
 
 (org-babel-do-load-languages
  'org-babel-load-languages
  '((python . t)
    (ipython . t)
-   (sh . t)
-   (R . t)))
+   ))
 
 ;;; execute block evaluation without confirmation
 (setq org-confirm-babel-evaluate nil)
@@ -298,5 +297,5 @@
 
 (setq org-src-fontify-natively t)
 
-(add-to-list 'org-latex-minted-langs '(ipython "python"))
+;; (add-to-list 'org-latex-minted-langs '(ipython "python"))
 ;;; Emacs ends here
