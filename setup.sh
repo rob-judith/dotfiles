@@ -1,5 +1,5 @@
 # Clone repos
-git clone git@github.com:StuckAt7/dotfiles.git
+git clone git@github.com:StuckAt7/project_euler.git
 
 # Install pyenv
 sudo apt-get install git python-pip make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev curl libffi-dev
@@ -20,12 +20,16 @@ pyenv install 3.7.6
 pyenv global 3.7.6
 
 #Setup python and jupyter
-pip install jupyter numpy scipy matplotlib seaborn pandas
+pip install jupyter numpy scipy matplotlib seaborn pandas jupyterlab
 jupyter notebook --generate-config
 
 
 # Setup haskell
-sudo apt-get install haskell-stack
-sudo apt-get install 
+sudo apt-get install -y python3-pip git libtinfo-dev libzmq3-dev libcairo2-dev libpango1.0-dev libmagic-dev libblas-dev liblapack-dev
+curl -sSL https://get.haskellstack.org/ | sh
 git clone https://github.com/gibiansky/IHaskell
 pip install -r requirements.txt
+stack install --fast
+ihaskell install --stack
+
+jupyter labextension install jupyterlab-ihaskell
