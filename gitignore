@@ -41,3 +41,5 @@ Thumbs.db
 *.sublime-workspace
 *.sublime-project
 .projectile
+.vscode
+
