@@ -4,7 +4,7 @@ This is a repo for all of my configuration files. Anyone can use this if they wo
 Setup VIM with symbolic links.
 
 ```bash
-ln -s ~/.dotfiles/vim/ .vim
+ln -s ~/.dotfiles/vim/ ~/.vim
 ln -sf ~/.dotfiles/vim/vimrc ~/.vimrc
 ```
 
@@ -18,12 +18,11 @@ Point git to the repo files in `.gitconfig`:
     excludesfile = "~/.dotfiles/gitignore"
 ```
 
-For shells and emacs just source the dotfiles
+For shells.
+
+Clone the antigen repo and source the zshrc file
 
 ```bash
+git clone git@github.com:zsh-users/antigen.git ~/.antigen
 source ~/.dotfiles/zshrc
-```
-
-```elisp
-(load "~/.dotfiles/emacs")
 ```
