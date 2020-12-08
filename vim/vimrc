@@ -85,6 +85,5 @@ hi StatusLineNC ctermfg=3 ctermbg=10
 " highlight DiffChange cterm=none ctermfg=Yellow ctermbg=Yellow gui=none guifg=DarkGrey guibg=Yellow
 
 " Set Colorscheme
-colorscheme Monokai
 
 " highlight DiffText cterm=none ctermfg=Magenta ctermbg=Magenta gui=none guifg=DarkGrey guibg=Magenta

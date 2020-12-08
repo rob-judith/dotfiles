@@ -1,6 +1,5 @@
 This is a repo for all of my configuration files. Anyone can use this if they would like but it's not designed to be useful for others.
 
-
 Setup VIM with symbolic links.
 
 ```bash
@@ -20,9 +19,19 @@ Point git to the repo files in `.gitconfig`:
 
 For shells.
 
-Clone the antigen repo and source the zshrc file
+Clone the antigen repo and source the zshrc file in `~/.zshrc`
 
 ```bash
 git clone git@github.com:zsh-users/antigen.git ~/.antigen
-source ~/.dotfiles/zshrc
+
+
+# Prepend the source to the zshrc file
+echo -e "source ~/.dotfiles/zshrc\n$(cat ~/.zshrc)" > ~/.zshrc
+```
+
+
+Tmux config
+
+```bash
+echo -e "source-file ~/.dotfiles/tmux.conf\n$(cat ~/.tmux.conf)" > ~/.tmux.conf
 ```
