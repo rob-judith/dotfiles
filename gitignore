@@ -1,3 +1,7 @@
+# Python #
+##########
+__pycache__
+
 # Compiled source #
 ###################
 *.com
@@ -42,4 +46,6 @@ Thumbs.db
 *.sublime-project
 .projectile
 .vscode
-
+.venv
+.python-version
+.env
