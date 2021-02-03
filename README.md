@@ -22,7 +22,7 @@ For shells.
 Clone the antigen repo and source the zshrc file in `~/.zshrc`
 
 ```bash
-git clone git@github.com:zsh-users/antigen.git ~/.antigen
+curl -L git.io/antigen > ~/.antigen.zsh
 
 
 # Prepend the source to the zshrc file
