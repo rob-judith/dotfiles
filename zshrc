@@ -19,6 +19,14 @@ antigen theme denysdovhan/spaceship-prompt
 # Tell Antigen that you're done.
 antigen apply
 
+# Aliases
+alias open=xdg-open
+alias jkernels-list="jupyter kernelspec list"
+alias jkernels-remove="jupyter kernelspec remove"
+alias jkernels-install="ipython kernel install --user --name"
 alias venv-activate="source ./venv/bin/activate"
+
+# Functions
+
 # Path and computer specific setup goes in the main zshrc
 
