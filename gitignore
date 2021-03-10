@@ -46,6 +46,7 @@ Thumbs.db
 *.sublime-project
 .projectile
 .vscode
-.venv
+.venv/
+venv/
 .python-version
 .env
