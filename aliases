@@ -1,0 +1,44 @@
+function archive {
+    for f in $@; do mv $f ./Archive/$(date +"%Y-%m-%d")_$f; done
+}
+
+# Emacs alias
+alias em='emacsclient -t -a emacs'
+
+# Ls and file operations
+alias ll="ls -lh"
+alias la="ls -a"
+alias fwatch="tail -f -n 100"
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+  alias open="xgd-open"
+
+# Grep color
+alias grep='grep --color=auto'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+
+# Create parent directories automatically
+alias mkdir='mkdir -pv'
+
+# Make wget resume partial downloads.
+alias wget='wget -c'
+
+# Tmux aliases
+alias tmux="tmux -2"
+alias tmuxa="tmux a -t"
+alias tmuxs="tmux new-session -s -2"
+
+# Clean pyc files
+alias pycclean='find ./ -name "*.pyc" -delete'
+
+alias jkernels-list="jupyter kernelspec list"
+alias jkernels-remove="jupyter kernelspec remove"
+alias jkernels-install="ipython kernel install --user --name"
+
+# Updates
+alias update='sudo apt upgrade'
+alias get-updates='sudo apt update && apt list --upgradeable'
+
+# Other
+alias iml_docker_login="aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin $DOCKER_REG"
+alias serve="python -m http.server --bind localhost"

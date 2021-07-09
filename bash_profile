@@ -15,36 +15,6 @@ fi
 # Don't let me install python packages without a virtual env
 export PIP_REQUIRE_VIRTUALENV=false
 
-alias em='emacsclient -t -a emacs'
-alias ll="ls -lh"
-alias la="ls -a"
-alias fwatch="tail -f -n 100"
-
-# Grep color
-alias grep='grep --color=auto'
-alias egrep='egrep --color=auto'
-alias fgrep='fgrep --color=auto'
-
-# Create parent directories automatically
-alias mkdir='mkdir -pv'
-
-# Make wget resume partial downloads.
-alias wget='wget -c'
-
-# Tmux aliases
-alias tmux="tmux -2"
-alias tmuxa="tmux a -t"
-alias tmuxs="tmux new-session -s -2"
-
-# Clean pyc files
-alias pycclean='find ./ -name "*.pyc" -delete'
-
-# Refresh mysql prevliges
-alias refresh-privliges='/opt/refresh-mysql-privliges'
-
-#Make Project
-alias mkproj='cookiecutter git@github.com:StuckAt7/SCL-cookiecutter.git --checkout rj_custom'
-
 # Define Colors
 # dark colors
 DK=$'\033[0;30m'    # black
@@ -69,7 +39,7 @@ ENDCOLOR=$'\033[0m'  # End color
 # Git status color
 function git_color() {
     local git_status="$(git status 2> /dev/null)"
-    
+
     # Add second catch for new git output
     if [[ $git_status =~ "Your branch is ahead of" ]]; then
         echo -e $DY
@@ -77,7 +47,7 @@ function git_color() {
         echo -e $DM
     elif [[ $git_status =~ "nothing to commit" ]]; then
         echo -e $DG
-    else 
+    else
         echo -en $DR
     fi
 }
