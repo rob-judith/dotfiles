@@ -4,7 +4,7 @@ Plug 'ervandew/supertab'
 "Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'vim-gitgutter'
+Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 Plug 'flazz/vim-colorschemes'
 call plug#end()
