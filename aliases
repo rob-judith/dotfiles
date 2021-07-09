@@ -11,6 +11,7 @@ alias la="ls -a"
 alias fwatch="tail -f -n 100"
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
   alias open="xgd-open"
+fi
 
 # Grep color
 alias grep='grep --color=auto'
@@ -42,3 +43,4 @@ alias get-updates='sudo apt update && apt list --upgradeable'
 # Other
 alias iml_docker_login="aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin $DOCKER_REG"
 alias serve="python -m http.server --bind localhost"
+
