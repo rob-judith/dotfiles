@@ -27,16 +27,15 @@ For shells.
 ln -s ~/dotfiles/doom.d ~/.doom.d
 ```
 
-### zsh
+### Fish
 
-Clone the antigen repo and source the zshrc file in `~/.zshrc`
+I've started to use fish as my main fancy prompt. Ad the following two lines to the `.config/fish/config.fish` file.
+
+Functions by default will be machine specific but can be copied over to the dot files. This let's me have machine specific aliases.
 
 ```sh
-curl -L git.io/antigen > ~/.antigen.zsh
-
-
-# Prepend the source to the zshrc file
-echo -e "source ~/.dotfiles/zshrc\nsource ~/.dotfiles/aliases\n$(cat ~/.zshrc)" > ~/.zshrc
+source ~/dotfiles/fish/config.fish
+set fish_function_path $fish_function_path ~/dotfiles/fish/functions
 ```
 
 ### bash
