@@ -21,6 +21,12 @@ Point git to the repo files in `.gitconfig`:
 
 For shells.
 
+## Emacs Doom
+
+```
+ln -s ~/dotfiles/doom.d ~/.doom.d
+```
+
 ### zsh
 
 Clone the antigen repo and source the zshrc file in `~/.zshrc`
