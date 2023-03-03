@@ -45,34 +45,3 @@ set shiftround
 autocmd FileType python set colorcolumn=80
 
 highlight ColorColumn ctermbg=4
-
-" Vim Airline settings
-set nocompatible   " Disable vi-compatibility
-set encoding=utf-8 " Necessary to show Unicode glyphs
-"set laststatus=2
-let g:airline_theme='wombat'
-
-" Map Nerd Tree Key
-map <F2> :NERDTreeToggle<CR>
-
-" Jedi-Mode Settings
-" autocmd FileType python setlocal completeopt-=preview
-let g:jedi#popup_on_dot = 0
-let g:jedi#auto_initialization = 1
-let g:jedi#auto_vim_configuration = 1
-let g:jedi#show_call_signatures = 0
-let g:jedi#max_doc_height = 10
-
-" Fix gitgutter
-highlight clear SignColumn
-hi StatusLine ctermfg=2 ctermbg=10
-hi StatusLineNC ctermfg=3 ctermbg=10
-
-" Vimdiff colors
-" highlight DiffAdd cterm=none ctermfg=Green ctermbg=Green gui=none guifg=DarkGrey guibg=Green
-" highlight DiffDelete cterm=none ctermfg=Red ctermbg=Red gui=none guifg=DarkGrey guibg=Red
-" highlight DiffChange cterm=none ctermfg=Yellow ctermbg=Yellow gui=none guifg=DarkGrey guibg=Yellow
-
-" Set Colorscheme
-
-" highlight DiffText cterm=none ctermfg=Magenta ctermbg=Magenta gui=none guifg=DarkGrey guibg=Magenta
