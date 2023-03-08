@@ -54,6 +54,7 @@ function git_color() {
 
 # Set bash line
 # export PROMPT_DIRTRIM=2 #Trim bash
+if
 export PS1="\[$DC\]\u@\h\[$ENDCOLOR\] :: \[$DB\]\w\[\$(git_color)\]\$(__git_ps1)\[$ENDCOLOR\]\n$ "
 
 

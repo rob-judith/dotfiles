@@ -1,0 +1,8 @@
+# format = """$directory\n$character"""
+# right_format = """$all"""
+
+[aws]
+disabled=false
+
+[aws.profile_aliases]
+ds_dev-069405983479 = 'DS'

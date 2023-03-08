@@ -95,7 +95,6 @@
     (interactive "sTicket:")
     (insert (format "[[https://jira.infiniaml.net/browse/%s][%s]]" ticket ticket)))
 
-
 ;; (define-key org-mode-map (kbd "C-c j") 'jira-link)
 ;; Old way Johnny
 (add-hook 'org-mode-hook
