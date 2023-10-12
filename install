@@ -2,6 +2,39 @@
 
 CLONE_DIR = "$HOME/dotfiles"
 
+# Detect the operating system and ensure tools are installed
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+    # Assuming Ubuntu or a Debian-based distro
+    echo "Detected Linux. Installing tools using apt..."
+
+    sudo apt update
+    sudo apt install -y fish fzf ripgrep tmux
+
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+    # macOS
+    echo "Detected macOS. Installing tools using Homebrew..."
+
+    # Check if Homebrew is installed, install if we don't have it
+    if test ! $(which brew); then
+        echo "Homebrew not found. Installing..."
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    fi
+
+    # Update Homebrew recipes
+    brew update
+
+    # Install the tools
+    brew install fish fzf ripgrep tmux
+
+else
+    echo "Unsupported operating system."
+    exit 1
+fi
+
+echo "Installation complete!"
+
+echo "Configuring dotfiles"
+
 # Initialize and update submodules (for Tmux plugins or other submodule-managed configurations)
 cd "$CLONE_DIR"
 git submodule update --init --recursive
