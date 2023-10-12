@@ -40,7 +40,7 @@ cd "$CLONE_DIR"
 git submodule update --init --recursive
 
 # Create symlinks for dotfiles
-DOTFILES=("vimrc" "tmux.conf" "gitconfig" "starship.toml")  # Notice we've removed .bashrc
+DOTFILES=("vimrc" "tmux.conf" "gitconfig" "starship.toml" "bash_profile" "gitignore")  # Notice we've removed .bashrc
 for file in "${DOTFILES[@]}"; do
     ln -s "$CLONE_DIR/$file" "$HOME/.$file"
 done
