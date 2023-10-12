@@ -1,3 +1,11 @@
+[url "ssh://git@gitlab.com/"]
+	insteadOf = https://gitlab.com/
+[core]
+	excludesFile = ~/.gitignore
+	editor = vim
+[user]
+	email = rob.judith@infiniaml.com
+	name = Rob Judith
 [push]
     default = simple
 [merge]
