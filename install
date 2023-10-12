@@ -1,0 +1,40 @@
+#!/bin/bash
+
+CLONE_DIR = "$HOME/dotfiles"
+
+# Initialize and update submodules (for Tmux plugins or other submodule-managed configurations)
+cd "$CLONE_DIR"
+git submodule update --init --recursive
+
+# Create symlinks for dotfiles
+DOTFILES=("vimrc" "tmux.conf" "gitconfig" "starship.toml")  # Notice we've removed .bashrc
+for file in "${DOTFILES[@]}"; do
+    ln -s "$CLONE_DIR/$file" "$HOME/.$file"
+done
+
+# Symlink fish config (assuming your config is in a directory named ".config/fish")
+if [ ! -d "$HOME/.config" ]; then
+    mkdir "$HOME/.config"
+fi
+ln -s "$CLONE_DIR/.config/fish" "$HOME/.config/fish"
+
+# For Tmux plugins, ensure you symlink the appropriate directory:
+ln -s "$CLONE_DIR/tmux/plugins" "$HOME/.tmux/plugins"
+
+# Set up Vim with vim-plug
+if [ ! -d "$HOME/.vim/autoload" ]; then
+    mkdir -p "$HOME/.vim/autoload"
+fi
+curl -fLo "$HOME/.vim/autoload/plug.vim" --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+# Install Vim plugins
+vim +PlugInstall +qall
+
+# Install Starship prompt (you might adjust this based on your specific needs or system)
+sh -c "$(curl -fsSL https://starship.rs/install.sh)"
+
+# Append starship initialization to fish's config
+echo "starship init fish | source" >> "$HOME/.config/fish/config.fish"
+
+echo "Dotfiles and plugins installed via vim-plug, submodules, and Starship configured for fish!"
