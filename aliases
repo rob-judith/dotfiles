@@ -45,5 +45,3 @@ alias omega-sequence='get-updates && update && shutdown now'
 alias iml_docker_login="aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin $DOCKER_REG"
 alias serve="python -m http.server --bind localhost"
 
-alias icat="kitty +kitten icat"
-alias kssh="kitty +kitten ssh"
