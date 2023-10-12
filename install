@@ -2,6 +2,10 @@
 
 CLONE_DIR="$HOME/dotfiles"
 BACKUP_DIR="$HOME/dotfiles_backup"
+REPO_URL="git@github.com:rob-judith/dotfiles.git"
+
+
+git clone "$REPO_URL" "$CLONE_DIR"
 
 mkdir "$BACKUP_DIR"
 
@@ -54,20 +58,24 @@ done
 if [ ! -d "$HOME/.config" ]; then
     mkdir "$HOME/.config"
 fi
+if [ ! -d "$HOME/.config/fish" ]; then
+    mkdir "$HOME/.config/fish"
+fi
 mv "$HOME/.config/fish/config.fish" "$BACKUP_DIR/config.fish"
 ln -s "$CLONE_DIR/fish/config.fish" "$HOME/.config/fish/config.fish"
 
-mv "$HOME/.tmux" "$BACKUP_DIR/tmux"
-# For Tmux plugins, ensure you symlink the appropriate directory:
-ln -s "$CLONE_DIR/tmux/" "$HOME/.tmux"
-
-mv "$HOME/.vim" "$BACKUP_DIR/vim"
-# Set up Vim with vim-plug
-ln -s "$CLONE_DIR/vim" "$HOME/.vim"
+# Create symlinks for dot folders
+for folder in "tmux" "vim"; do
+    # Remove simlink if it exists
+    if [ -L "$HOME/.$folder" ]; then
+        rm "$HOME/.$folder"
+    fi
+    mv "$HOME/.$folder" "$BACKUP_DIR/$folder"
+    ln -s "$CLONE_DIR/$folder/" "$HOME/.$folder"
+done
 
 # Install Vim plugins
 vim +PlugInstall +qall
 
 # Install Starship prompt (you might adjust this based on your specific needs or system)
-
-echo "Dotfiles and plugins installed via vim-plug, submodules, and Starship configured for fish!"
+echo "Dotfiles and plugins installed"
