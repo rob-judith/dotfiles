@@ -1,13 +1,19 @@
 # format = """$directory\n$character"""
 # right_format = """$all"""
 
+[username]
+disabled=true
+
+[directory]
+fish_style_pwd_dir_length=1
+
 [shell]
 disabled=false
 fish_indicator=''
 
 
 [aws]
-disabled=false
+disabled=true
 
 [aws.profile_aliases]
 ds_dev-069405983479 = 'DS'
