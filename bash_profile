@@ -40,4 +40,6 @@ ENDCOLOR=$'\033[0m'  # End color
 export LSCOLORS=ExFxBxDxCxegedabagacad # specifies colors for mac
 export LS_COLORS=$LS_COLORS:'di=1;34:ln=36:*.py=31:*.txt=33:*.ipynb=35:*.csv=33' # specifies colors for linux
 
+alias start_fish="SHELL=/usr/bin/fish fish"
+
 eval "$(starship init bash)"

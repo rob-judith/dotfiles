@@ -1,6 +1,11 @@
 # format = """$directory\n$character"""
 # right_format = """$all"""
 
+[shell]
+disabled=false
+fish_indicator=''
+
+
 [aws]
 disabled=false
 
