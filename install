@@ -6,7 +6,6 @@ REPO_URL="git@github.com:rob-judith/dotfiles.git"
 
 
 git clone "$REPO_URL" "$CLONE_DIR"
-
 mkdir "$BACKUP_DIR"
 
 # Detect the operating system and ensure tools are installed
@@ -33,22 +32,21 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
 
     # Install the tools
     brew install fish fzf ripgrep tmux starship
-
 else
     echo "Unsupported operating system."
     exit 1
 fi
 
-echo "Installation complete!"
-
+echo "Installation of tools complete!"
 echo "Configuring dotfiles"
 
 # Initialize and update submodules (for Tmux plugins or other submodule-managed configurations)
 cd "$CLONE_DIR"
 git submodule update --init --recursive
+cd "$HOME"
 
 # Create symlinks for dotfiles
-DOTFILES=("vimrc" "tmux.conf" "gitconfig" "bashrc" "gitignore")  # Notice we've removed .bashrc
+DOTFILES=("vimrc" "tmux.conf" "gitconfig" "bashrc" "gitignore")
 for file in "${DOTFILES[@]}"; do
     mv "$HOME/.$file" "$BACKUP_DIR/$file"
     ln -s "$CLONE_DIR/$file" "$HOME/.$file"
@@ -63,6 +61,8 @@ if [ ! -d "$HOME/.config/fish" ]; then
 fi
 mv "$HOME/.config/fish/config.fish" "$BACKUP_DIR/config.fish"
 ln -s "$CLONE_DIR/fish/config.fish" "$HOME/.config/fish/config.fish"
+
+# Symlink starship toml
 ln -s "$CLONE_DIR/starship.toml" "$HOME/.config/starship.toml"
 
 # Create symlinks for dot folders
@@ -71,11 +71,12 @@ for folder in "tmux" "vim"; do
     if [ -L "$HOME/.$folder" ]; then
         rm "$HOME/.$folder"
     fi
-    mv "$HOME/.$folder" "$BACKUP_DIR/$folder"
+    if [-d "$HOME/.$FOLDER" ]; then
+        mv "$HOME/.$folder" "$BACKUP_DIR/$folder"
+    fi
     ln -s "$CLONE_DIR/$folder/" "$HOME/.$folder"
 done
 
 # Install Vim plugins
 vim +PlugInstall +qall
-
 echo "Dotfiles and plugins installed"
