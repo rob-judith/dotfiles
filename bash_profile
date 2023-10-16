@@ -36,27 +36,8 @@ LC=$'\033[1;36m'    # cyan
 LW=$'\033[1;37m'    # white
 ENDCOLOR=$'\033[0m'  # End color
 
-# Git status color
-function git_color() {
-    local git_status="$(git status 2> /dev/null)"
-
-    # Add second catch for new git output
-    if [[ $git_status =~ "Your branch is ahead of" ]]; then
-        echo -e $DY
-    elif [[ $git_status =~ "Your branch is behind" ]]; then
-        echo -e $DM
-    elif [[ $git_status =~ "nothing to commit" ]]; then
-        echo -e $DG
-    else
-        echo -en $DR
-    fi
-}
-
-# Set bash line
-# export PROMPT_DIRTRIM=2 #Trim bash
-export PS1="\[$DC\]\u@\h\[$ENDCOLOR\] :: \[$DB\]\w\[\$(git_color)\]\$(__git_ps1)\[$ENDCOLOR\]\n$ "
-
-
 # Set Colors thanks Josesph
 export LSCOLORS=ExFxBxDxCxegedabagacad # specifies colors for mac
 export LS_COLORS=$LS_COLORS:'di=1;34:ln=36:*.py=31:*.txt=33:*.ipynb=35:*.csv=33' # specifies colors for linux
+
+eval "$(starship init bash)"
