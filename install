@@ -16,7 +16,7 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
 
     sudo apt update
     sudo apt install -y fish fzf ripgrep tmux
-    sh -c "$(curl -fsSL https://starship.rs/install.sh) -y"
+    sh -c "$(curl -fsSL https://starship.rs/install.sh)"
 
 elif [[ "$OSTYPE" == "darwin"* ]]; then
     # macOS
@@ -77,5 +77,4 @@ done
 # Install Vim plugins
 vim +PlugInstall +qall
 
-# Install Starship prompt (you might adjust this based on your specific needs or system)
 echo "Dotfiles and plugins installed"
