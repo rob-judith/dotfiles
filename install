@@ -46,7 +46,7 @@ git submodule update --init --recursive
 cd "$HOME"
 
 # Create symlinks for dotfiles
-DOTFILES=("vimrc" "tmux.conf" "gitconfig" "bashrc" "gitignore")
+DOTFILES=("vimrc" "tmux.conf" "gitconfig" "bashrc" "gitignore" "bash_profile")
 for file in "${DOTFILES[@]}"; do
     mv "$HOME/.$file" "$BACKUP_DIR/$file"
     ln -s "$CLONE_DIR/$file" "$HOME/.$file"
