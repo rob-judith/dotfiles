@@ -34,7 +34,9 @@ set -U  fish_pager_color_selected_background \x2dr
 set -U EDITOR vim
 
 # Setup new function folder
-set -U fish_function_path $fish_function_path "$HOME/dotfiles/fish/functions"
+if not contains "$HOME/dotfiles/fish/functions" $fish_function_path
+    set -U fish_function_path $fish_function_path "$HOME/dotfiles/fish/functions"
+end
 
 # Linux specific config
 if uname -s | grep -q Linux
