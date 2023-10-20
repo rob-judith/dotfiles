@@ -34,11 +34,17 @@ set -U  fish_pager_color_selected_background \x2dr
 set -U EDITOR vim
 
 # Setup new function folder
-set -gx fish_function_path $fish_function_path ~/dotfiles/fish/functions
+set -U fish_function_path $fish_function_path "$HOME/dotfiles/fish/functions"
 
-# Enable fzf binding
-if grep -q 'Ubuntu' /etc/os-release
+# Linux specific config
+if uname -s | grep -q Linux
     source /usr/share/doc/fzf/examples/key-bindings.fish
 end
 
+# OSX specific config
+if uname -s | grep -q Darwin
+    pass
+end
+
+# Enable fzf binding
 fzf_key_bindings
