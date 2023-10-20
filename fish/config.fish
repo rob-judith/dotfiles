@@ -37,5 +37,8 @@ set -U EDITOR vim
 set -gx fish_function_path $fish_function_path ~/dotfiles/fish/functions
 
 # Enable fzf binding
-fzf_key_bindings
+if grep -q 'Ubuntu' /etc/os-release
+    source /usr/share/doc/fzf/examples/key-bindings.fish
+end
 
+fzf_key_bindings
