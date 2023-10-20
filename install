@@ -14,7 +14,7 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     echo "Detected Linux. Installing tools using apt..."
 
     sudo apt update
-    sudo apt install -y fish fzf ripgrep tmux
+    sudo apt install -y fish fzf ripgrep tmux fd-find
     sh -c "$(curl -fsSL https://starship.rs/install.sh)"
 
 elif [[ "$OSTYPE" == "darwin"* ]]; then
@@ -31,7 +31,7 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
     brew update
 
     # Install the tools
-    brew install fish fzf ripgrep tmux starship
+    brew install fish fzf ripgrep tmux starship fd
 else
     echo "Unsupported operating system."
     exit 1
