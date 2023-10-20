@@ -43,7 +43,7 @@ end
 
 # OSX specific config
 if uname -s | grep -q Darwin
-    pass
+    # pass
 end
 
 # Enable fzf binding
