@@ -37,5 +37,5 @@ set -U EDITOR vim
 set -gx fish_function_path $fish_function_path ~/dotfiles/fish/functions
 
 # Enable fzf binding
-# fzf_key_bindings
+fzf_key_bindings
 
