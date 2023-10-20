@@ -36,3 +36,6 @@ set -U EDITOR vim
 # Setup new function folder
 set -gx fish_function_path $fish_function_path ~/dotfiles/fish/functions
 
+# Enable fzf binding
+# fzf_key_bindings
+
