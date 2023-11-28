@@ -13,8 +13,7 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     # Assuming Ubuntu or a Debian-based distro
     echo "Detected Linux. Installing tools using apt..."
 
-    sudo apt update
-    sudo apt install -y fish fzf ripgrep tmux fd-find
+    sudo apt-get install -y fish fzf ripgrep tmux fd-find
     sh -c "$(curl -fsSL https://starship.rs/install.sh)"
     # Fix fdfind name
     fish -c "alias fd='fdfind'; funcsave fd"
