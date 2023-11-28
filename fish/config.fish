@@ -49,4 +49,4 @@ if uname -s | grep -q Darwin
 end
 
 # Enable fzf binding
-fzf_key_bindings
+#fzf_key_bindings
