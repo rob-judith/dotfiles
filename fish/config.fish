@@ -1,6 +1,6 @@
 set -U fish_greeting
 starship init fish | source
-
+pyenv init - | source 
 # Set colorscheme
 set -U  fish_color_autosuggestion 555\x1ebrblack
 set -U  fish_color_cancel \x2dr

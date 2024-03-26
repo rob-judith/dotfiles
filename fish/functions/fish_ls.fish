@@ -30,5 +30,5 @@ function ls --description 'List contents of directory'
     isatty stdout
     and set -a opt -F
 
-    command $__fish_ls_command $__fish_ls_color_opt --group-directories-first $argv
+    command $__fish_ls_command $__fish_ls_color_opt -G $argv
 end
