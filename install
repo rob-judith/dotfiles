@@ -14,11 +14,12 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     echo "Detected Linux. Installing tools using apt..."
 
     sudo apt-get install -y fish fzf ripgrep tmux fd-find
+    sudo snap install neovim --classic
     sh -c "$(curl -fsSL https://starship.rs/install.sh)"
     ## installs nvm (Node Version Manager)
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
 
-    # download and install Node.js (you may need to restart the terminal)
+    # download and install Node.js required for lsp servers
     bash -c "nvm install 20"
 
     # Fix fdfind name
