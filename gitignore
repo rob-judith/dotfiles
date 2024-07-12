@@ -10,6 +10,7 @@ __pycache__
 *.exe
 *.o
 *.so
+.git
 
 # Packages #
 ############
@@ -44,6 +45,7 @@ Thumbs.db
 #############
 *.sublime-workspace
 *.sublime-project
+pyrightconfig.json
 .projectile
 .vscode
 .venv/
