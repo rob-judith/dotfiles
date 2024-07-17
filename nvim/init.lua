@@ -1,7 +1,6 @@
 --[[
 Kickstart Guide:
 
-
   Next, run AND READ `:help`.
     This will open up a help window with some basic information
     about reading, navigating and searching the builtin help documentation.
@@ -20,6 +19,7 @@ Kickstart Guide:
 -- Set <space> as the leader key
 -- See `:help mapleader`
 --  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
+--
 
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
@@ -103,12 +103,6 @@ vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagn
 -- NOTE: This won't work in all terminal emulators/tmux/etc. Try your own mapping
 -- or just use <C-\><C-n> to exit terminal mode
 vim.keymap.set("t", "<leader><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
-
--- TIP: Disable arrow keys in normal mode
--- vim.keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
--- vim.keymap.set('n', '<right>', '<cmd>echo "Use l to move!!"<CR>')
--- vim.keymap.set('n', '<up>', '<cmd>echo "Use k to move!!"<CR>')
--- vim.keymap.set('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
 
 -- Keybinds to make split navigation easier.
 --  Use CTRL+<hjkl> to switch between windows
@@ -688,8 +682,6 @@ if not vim.g.vscode then
 
 				vim.keymap.set("n", "<leader>cc", "<cmd>lua ToggleCompletion()<CR>", { desc = "Toggle autocomplete" })
 
-				local function setAutocomplete() end
-
 				cmp.setup({
 					snippet = {
 						expand = function(args)
@@ -728,7 +720,7 @@ if not vim.g.vscode then
 						-- Manually trigger a completion from nvim-cmp.
 						--  Generally you don't need this, because nvim-cmp will display
 						--  completions whenever it has completion options available.
-						["<C-Space>"] = cmp.mapping.complete({}, { "i", "c" }),
+						["<C-Space>"] = cmp.mapping.complete({}),
 
 						-- Think of <c-l> as moving to the right of your snippet expansion.
 						--  So if you have a snippet that's like:
