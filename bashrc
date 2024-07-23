@@ -46,3 +46,6 @@ alias dcv-open="DISPLAY=:1 GNOME_DESKTOP_SESSION_ID=0 xdg-open"
 eval "$(starship init bash)"
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# Generated for envman. Do not edit.
+[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
