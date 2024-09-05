@@ -8,48 +8,6 @@ REPO_URL="git@github.com:rob-judith/dotfiles.git"
 git clone "$REPO_URL" "$CLONE_DIR"
 mkdir "$BACKUP_DIR"
 
-# Detect the operating system and ensure tools are installed
-if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-    # Assuming Ubuntu or a Debian-based distro
-    echo "Detected Linux. Installing tools using apt..."
-
-    sudo apt-get install -y fish fzf ripgrep tmux fd-find
-    sudo snap install neovim --classic
-    sh -c "$(curl -fsSL https://starship.rs/install.sh)"
-    ## installs nvm (Node Version Manager)
-    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
-
-    # download and install Node.js required for lsp servers
-    bash -c "nvm install 20"
-
-    # Fix fdfind name
-    fish -c "alias fd='fdfind'; funcsave fd"
-    # Ensure pyenv is setup
-    fish -c "set -Ux PYENV_ROOT $HOME/.pyenv; set -U fish_user_paths $PYENV_ROOT/bin $fish_user_paths"
-
-elif [[ "$OSTYPE" == "darwin"* ]]; then
-    # macOS
-    echo "Detected macOS. Installing tools using Homebrew..."
-
-    # Check if Homebrew is installed, install if we don't have it
-    if test ! $(which brew); then
-        echo "Homebrew not found. Installing..."
-        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    fi
-
-    # Update Homebrew recipes
-    brew update
-
-    # Install the tools
-    brew install fish fzf ripgrep tmux starship fd nvim cmake node
-    # Setup pyenv with fish
-    fish -c "set -Ux PYENV_ROOT $HOME/.pyenv; fish_add_path $PYENV_ROOT/bin"
-else
-    echo "Unsupported operating system."
-    exit 1
-fi
-
-echo "Installation of tools complete!"
 echo "Configuring dotfiles"
 
 # Initialize and update submodules (for Tmux plugins or other submodule-managed configurations)
