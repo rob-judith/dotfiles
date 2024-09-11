@@ -11,3 +11,4 @@ fish -c "alias fd='fdfind'; funcsave fd"
 fish -c "set -Ux PYENV_ROOT $HOME/.pyenv; set -U fish_user_paths $PYENV_ROOT/bin $fish_user_paths"
 # Set a path for custom scripts
 fish -c "set -U fish_user_paths $HOME/dotfiles/bin"
+sudo apt install -y $(nvidia-detector)
