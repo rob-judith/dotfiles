@@ -4,7 +4,7 @@ curl -fsSL https://deb.nodesource.com/setup_22.x -o nodesource_setup.sh
 sudo -E bash nodesource_setup.sh
 sudo apt-get install -y nodejs
 sudo snap install nvim --classic
-rsync -a /data/robjudith/backup/ $HOME
+rsync -aP /data/robjudith/backup/ $HOME
 
 
 fish -c "alias fd='fdfind'; funcsave fd"
