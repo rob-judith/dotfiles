@@ -1,0 +1,4 @@
+#!/bin/bash
+rsync -aP --delete $HOME/ /data/robjudith/backup --exclude="venv" --exclude=".cache" --delete-excluded --exclude=".vscode-server"
+
+
