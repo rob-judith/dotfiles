@@ -4,6 +4,7 @@ curl -fsSL https://deb.nodesource.com/setup_22.x -o nodesource_setup.sh
 sudo -E bash nodesource_setup.sh
 sudo apt-get install -y nodejs
 sudo snap install nvim --classic
+curl https://pyenv.run | bash
 rsync -aP /data/robjudith/backup/ $HOME
 
 
