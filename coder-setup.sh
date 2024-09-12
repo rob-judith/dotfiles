@@ -5,7 +5,6 @@ sudo -E bash nodesource_setup.sh
 sudo apt-get install -y nodejs
 sudo snap install nvim --classic
 curl https://pyenv.run | bash
-rsync -aP /data/robjudith/backup/ $HOME
 
 
 fish -c "alias fd='fdfind'; funcsave fd"
