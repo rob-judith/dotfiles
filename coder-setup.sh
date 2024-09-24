@@ -9,7 +9,7 @@ curl https://pyenv.run | bash
 
 fish -c "alias fd='fdfind'; funcsave fd"
 fish -c "set -Ux PYENV_ROOT $HOME/.pyenv"
-fish -c "set -U fish_user_paths $PYENV_ROOT/bin $fish_user_paths"
+fish -c "set -Ux PYENV_ROOT $HOME/.pyenv; fish_add_path $PYENV_ROOT/bin"
 # Set a path for custom scripts
 fish -c "set -U fish_user_paths $HOME/dotfiles/bin"
 
