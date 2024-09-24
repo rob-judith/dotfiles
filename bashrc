@@ -1,11 +1,11 @@
 # Some settings are OS dependent.
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
   alias ls="ls --color=auto --group-directories-first"
-  export EDITOR="/usr/bin/vim"
+  export EDITOR="nvim"
 
 elif [[ "$OSTYPE" == "darwin"* ]]; then
   alias ls="gls --color=auto --group-directories-first"
-  export EDITOR="/usr/local/bin/vim"
+  export EDITOR="nvim"
   # setup bash_completion this will fail if brew isn't installed
   . `brew --prefix`/etc/bash_completion
 else
