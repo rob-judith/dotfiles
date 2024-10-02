@@ -6,3 +6,5 @@ if [ -n "$SSH_TTY" ] && command -v fish > /dev/null; then
 fi
 
 source ~/.bashrc
+
+. "$HOME/.cargo/env"

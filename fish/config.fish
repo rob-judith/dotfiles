@@ -31,8 +31,8 @@ set -U  fish_pager_color_progress brwhite\x1e\x2d\x2dbackground\x3dcyan
 set -U  fish_pager_color_selected_background \x2dr
 
 # Setup editor
-set -U EDITOR nvim
-set -U fish_default_cursor block
+set -gx EDITOR nvim
+set -gx fish_default_cursor block
 
 # Setup new function folder
 if not contains "$HOME/dotfiles/fish/functions" $fish_function_path
