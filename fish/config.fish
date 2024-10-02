@@ -1,4 +1,5 @@
 set -U fish_greeting
+set fish_default_cursor block
 starship init fish | source
 pyenv init - | source 
 # Set colorscheme
