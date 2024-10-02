@@ -81,7 +81,7 @@ return {
 					local path = node:get_id()
 					local system = vim.system({ "uname", "-s" }, { text = true }):wait()
 					if system == "Darwin" then
-						vim.system({ "xdg-open", "-g", path },)
+						vim.system({ "xdg-open", "-g", path })
 					elseif vim.uv.os_environ()["SSH_TTY"] then
 						vim.system({ "xdg-open", path }, { env = { DISPLAY = ":1", GNOME_DESKTOP_SESSION_ID = "0" } })
 					else
