@@ -367,4 +367,17 @@ return {
 			--    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
 		end,
 	},
+	{
+		"akinsho/toggleterm.nvim",
+		version = "*",
+		config = function()
+			require("toggleterm").setup({
+				open_mapping = [[<c-\>]],
+			})
+			local trim_spaces = false
+			vim.keymap.set("v", "<leader>s", function()
+				require("toggleterm").send_lines_to_terminal("visual_lines", trim_spaces, { args = vim.v.count })
+			end)
+		end,
+	},
 }
