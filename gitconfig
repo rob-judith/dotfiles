@@ -2,7 +2,7 @@
 	insteadOf = https://gitlab.com/
 [core]
 	excludesFile = ~/.gitignore
-	editor = vim
+	editor = nvim
 [user]
 	email = rob.judith@infiniaml.com
 	name = robjudith
