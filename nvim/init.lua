@@ -131,6 +131,24 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	end,
 })
 
+-- neovide settings
+if vim.g.neovide == true then
+	vim.g.neovide_position_animation_length = 1
+	vim.g.neovide_cursor_animation_length = 0.01
+	vim.g.neovide_cursor_trail_size = 1
+	vim.g.neovide_cursor_animate_in_insert_mode = true
+	vim.g.neovide_cursor_animate_command_line = true
+	vim.g.neovide_scroll_animation_far_lines = 0
+	vim.g.neovide_scroll_animation_length = 0.00
+
+	-- Setup copy and past since neovide doesn't set it up like the terminal
+	vim.keymap.set("v", "<D-c>", '"+y') -- Copy
+	vim.keymap.set("n", "<D-v>", '"+P') -- Paste normal mode
+	vim.keymap.set("v", "<D-v>", '"+P') -- Paste visual mode
+	vim.keymap.set("c", "<D-v>", "<C-R>+") -- Paste command mode
+	vim.keymap.set("i", "<D-v>", '<ESC>l"+Pli') -- Paste insert mode
+end
+
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
