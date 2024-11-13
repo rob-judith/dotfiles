@@ -1,11 +1,15 @@
 #!/bin/bash
-sudo apt-get install -y fish fzf ripgrep tmux fd-find
-curl -fsSL https://deb.nodesource.com/setup_22.x -o nodesource_setup.sh
-sudo -E bash nodesource_setup.sh
-sudo apt-get install -y nodejs
-sudo snap install nvim --classic
-curl https://pyenv.run | bash
 
+if test ! $(which brew); then
+echo "Homebrew not found. Installing..."
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+fi
+
+# Update Homebrew recipes
+brew update
+
+# Install the tools
+brew install fish fzf ripgrep tmux starship fd nvim cmake node
 
 fish -c "alias fd='fdfind'; funcsave fd"
 fish -c "set -Ux PYENV_ROOT $HOME/.pyenv"

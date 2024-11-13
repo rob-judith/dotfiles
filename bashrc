@@ -1,16 +1,16 @@
 # Some settings are OS dependent.
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
   alias ls="ls --color=auto --group-directories-first"
-  export EDITOR="nvim"
 
 elif [[ "$OSTYPE" == "darwin"* ]]; then
   alias ls="gls --color=auto --group-directories-first"
-  export EDITOR="nvim"
   # setup bash_completion this will fail if brew isn't installed
-  . `brew --prefix`/etc/bash_completion
 else
   echo "Unrecognized OS some settings not set."
+  . `brew --prefix`/etc/bash_completion
 fi
+
+export EDITOR="nvim"
 
 # Don't let me install python packages without a virtual env
 export PIP_REQUIRE_VIRTUALENV=false
@@ -44,6 +44,7 @@ alias start_fish="SHELL=/usr/bin/fish fish"
 alias dcv-open="DISPLAY=:1 GNOME_DESKTOP_SESSION_ID=0 xdg-open"
 
 eval "$(starship init bash)"
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 

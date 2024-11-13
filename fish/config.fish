@@ -51,7 +51,9 @@ if uname -s | grep -q Darwin
 end
 
 # Enable fzf binding
-#fzf_key_bindings
+fzf_key_bindings
 
 # Generated for envman. Do not edit.
 test -s ~/.config/envman/load.fish; and source ~/.config/envman/load.fish
+
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
