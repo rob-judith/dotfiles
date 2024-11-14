@@ -1,7 +1,6 @@
 set -U fish_greeting
-set fish_default_cursor block
+
 starship init fish | source
-pyenv init - | source 
 # Set colorscheme
 set -U  fish_color_autosuggestion 555\x1ebrblack
 set -U  fish_color_cancel \x2dr
@@ -57,3 +56,4 @@ fzf_key_bindings
 test -s ~/.config/envman/load.fish; and source ~/.config/envman/load.fish
 
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+pyenv init - | source 
