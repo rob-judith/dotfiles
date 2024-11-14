@@ -56,4 +56,7 @@ fzf_key_bindings
 # Generated for envman. Do not edit.
 test -s ~/.config/envman/load.fish; and source ~/.config/envman/load.fish
 
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+switch (uname)
+    case Linux
+        eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+end
