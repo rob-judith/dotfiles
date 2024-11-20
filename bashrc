@@ -44,7 +44,7 @@ alias start_fish="SHELL=/usr/bin/fish fish"
 alias dcv-open="DISPLAY=:1 GNOME_DESKTOP_SESSION_ID=0 xdg-open"
 
 eval "$(starship init bash)"
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"

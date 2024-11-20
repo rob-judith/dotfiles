@@ -5,6 +5,7 @@ echo "Homebrew not found. Installing..."
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 # Update Homebrew recipes
 brew update
 
