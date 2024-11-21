@@ -18,9 +18,11 @@ fish -c "set -Ux PYENV_ROOT $HOME/.pyenv; fish_add_path $PYENV_ROOT/bin"
 # Set a path for custom scripts
 fish -c "set -U fish_user_paths $HOME/dotfiles/bin"
 
+git clone git@gitlab.com:infiniaml/iml.git
+git clone git@gitlab.com:infiniaml/research-projects/appeals.git
 
 # Configre dcvserver and nvidia
-sudo apt install -y $(nvidia-detector) gnome
+sudo apt update -y && sudo apt install -y $(nvidia-detector) gnome
 sudo nvidia-xconfig
 sudo systemctl start gdm
 sudo systemctl restart dcvserver

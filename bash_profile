@@ -2,7 +2,7 @@
 # This is safer for coder machines than changing the login shell
 # which can break scripts
 if [ -n "$SSH_TTY" ] && command -v fish > /dev/null; then
-    SHELL=/usr/bin/fish exec fish
+    SHELL=$(which fish) exec fish
 fi
 
 source ~/.bashrc
