@@ -22,7 +22,7 @@ git clone git@gitlab.com:infiniaml/iml.git
 git clone git@gitlab.com:infiniaml/research-projects/appeals.git
 
 # Configre dcvserver and nvidia
-sudo apt update -y && sudo apt install -y $(nvidia-detector) gnome
+sudo apt-get update -y && sudo apt-get install -y $(nvidia-detector) gnome
 sudo nvidia-xconfig
 sudo systemctl start gdm
 sudo systemctl restart dcvserver
