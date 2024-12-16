@@ -5,6 +5,7 @@ echo "Homebrew not found. Installing..."
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 # Update Homebrew recipes
 brew update
 
@@ -17,9 +18,11 @@ fish -c "set -Ux PYENV_ROOT $HOME/.pyenv; fish_add_path $PYENV_ROOT/bin"
 # Set a path for custom scripts
 fish -c "set -U fish_user_paths $HOME/dotfiles/bin"
 
+git clone git@gitlab.com:infiniaml/iml.git
+git clone git@gitlab.com:infiniaml/research-projects/appeals.git
 
 # Configre dcvserver and nvidia
-sudo apt-get install -y $(nvidia-detector) gnome
+sudo apt-get update -y && sudo apt-get install -y $(nvidia-detector) gnome
 sudo nvidia-xconfig
 sudo systemctl start gdm
 sudo systemctl restart dcvserver

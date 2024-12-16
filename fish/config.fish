@@ -39,18 +39,6 @@ if not contains "$HOME/dotfiles/fish/functions" $fish_function_path
     set -U fish_function_path $fish_function_path "$HOME/dotfiles/fish/functions"
 end
 
-# Linux specific config
-if uname -s | grep -q Linux
-    source /usr/share/doc/fzf/examples/key-bindings.fish
-end
-
-# OSX specific config
-if uname -s | grep -q Darwin
-    # pass
-end
-
-# Enable fzf binding
-fzf_key_bindings
 
 # Generated for envman. Do not edit.
 test -s ~/.config/envman/load.fish; and source ~/.config/envman/load.fish
@@ -59,4 +47,5 @@ switch (uname)
     case Linux
         eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 end
+
 pyenv init - | source 

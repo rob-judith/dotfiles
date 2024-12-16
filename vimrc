@@ -46,7 +46,7 @@ set shiftwidth=4
 set shiftround
 " Somehow habamax
 set bg=dark
-colorscheme sorbet
+colorscheme retrobox
 " Colorschemes I like habamax, wildcharm, sorbet, zaibatsu, retrobox
 
 autocmd FileType python set colorcolumn=80
