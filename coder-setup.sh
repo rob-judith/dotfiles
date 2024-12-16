@@ -19,7 +19,7 @@ fish -c "set -U fish_user_paths $HOME/dotfiles/bin"
 
 
 # Configre dcvserver and nvidia
-sudo apt install -y $(nvidia-detector) gnome
+sudo apt-get install -y $(nvidia-detector) gnome
 sudo nvidia-xconfig
 sudo systemctl start gdm
 sudo systemctl restart dcvserver
